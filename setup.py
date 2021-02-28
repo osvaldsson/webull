@@ -25,7 +25,8 @@ setuptools.setup(
         "requests>=2.23.0",
         "six>=1.14.0",
         "urllib3>=1.25.9",
-        "email-validator>=1.1.0"
+        "email-validator>=1.1.0",
+        "dnspython>=2.1.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
