@@ -294,10 +294,10 @@ def test_get_trade_token(wb: webull, reqmock):
     # [case 2] get_trade_token fails, password is incorrect
     reqmock.post(urls.trade_token(), text='''
         {
-            "msg":"'Inner server error", 
-            "traceId": "xxxxxxxxxxxxxxxxxxxxxxxxxx", 
-            "code": "trade.pwd.invalid", 
-            "data": { "fail": 1.0, "retry": 4.0 }, 
+            "msg":"'Inner server error",
+            "traceId": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "code": "trade.pwd.invalid",
+            "data": { "fail": 1.0, "retry": 4.0 },
             "success": false
         }
     ''')
@@ -310,7 +310,7 @@ def test_get_trade_token(wb: webull, reqmock):
     # [case 3] get_trade_token succeeds, password is correct
     reqmock.post(urls.trade_token(), text='''
         {
-            "success": true, 
+            "success": true,
             "data": {
                 "tradeToken": "xxxxxxxxxx",
                 "tradeTokenExpireIn": 28800000
