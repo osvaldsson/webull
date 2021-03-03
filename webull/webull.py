@@ -1182,6 +1182,18 @@ class webull:
 
         return account_type
 
+    def get_chart(self, stock, chart_type, count, timestamp=None):
+        '''
+        gets chart data for the last count chart_type datapoints
+        backwards starting from the timestamp if specified
+        '''
+        headers = self.build_req_headers()
+
+        response = requests.get(self._urls.chart(self.get_ticker(stock), chart_type, count, timestamp), headers=headers)
+        result = response.json()
+
+        return result
+
 ''' Paper support '''
 class paper_webull(webull):
 

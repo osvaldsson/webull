@@ -58,6 +58,12 @@ class urls :
     def cancel_order(self, account_id):
         return f'{self.base_trade_url}/order/{account_id}/cancelStockOrder/'
 
+    def chart(self, stock, chart_type, count, timestamp=None):
+        if timestamp:
+            return f'{self.base_fintech_gw_url}/quote/charts/query?tickerIds={stock}&type={chart_type}&count={count}&timestamp={timestamp}'
+        else:
+            return f'{self.base_fintech_gw_url}/quote/charts/query?tickerIds={stock}&type={chart_type}&count={count}'
+
     def modify_otoco_orders(self, account_id):
         return f'{self.base_trade_url}/v2/corder/stock/modify/{account_id}'
 
