@@ -1182,14 +1182,16 @@ class webull:
 
         return account_type
 
-    def get_chart(self, stock, chart_type, count, timestamp=None):
+    def get_chart(self, stock, chart_interval, count, timestamp=None):
         '''
-        gets chart data for the last count chart_type datapoints
+        gets chart data for the last count chart_interval datapoints
         backwards starting from the timestamp if specified
+
+        Chart candle format: '<timestamp>,<open>,<close>,<high>,<low>,<last_close>,<volume>,<average>'
         '''
         headers = self.build_req_headers()
 
-        response = requests.get(self._urls.chart(self.get_ticker(stock), chart_type, count, timestamp), headers=headers)
+        response = requests.get(self._urls.chart(self.get_ticker(stock), chart_interval, count, timestamp), headers=headers)
         result = response.json()
 
         return result

@@ -58,7 +58,7 @@ class urls :
     def cancel_order(self, account_id):
         return f'{self.base_trade_url}/order/{account_id}/cancelStockOrder/'
 
-    def chart(self, stock, chart_type, count, timestamp=None):
+    def chart(self, stock, chart_interval, count, timestamp=None):
         if timestamp:
             return f'{self.base_fintech_gw_url}/quote/charts/query?tickerIds={stock}&type={chart_type}&count={count}&timestamp={timestamp}'
         else:
